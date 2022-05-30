@@ -5,6 +5,10 @@ import Eye from './Components/eye.svg'
 import React , {useState}from "react";
 function App() {
   const [count , setcount] = useState(1)
+
+   const hadal= (e)=>{
+       setcount(e)
+   }
   return (
     <div className="container">
       <Input  rightLogo={Eye}  variant='outline' />
@@ -17,7 +21,7 @@ function App() {
       alt="sagar"
       />
 
-      <Pagination  total={8}  selected={1}   />
+      <Pagination  total={8}  selected={count}  key={1}   onPageChange={(e)=>{hadal(e)} }/>
     </div>
   );
 }

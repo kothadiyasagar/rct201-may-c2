@@ -7,12 +7,12 @@ export const Pagination = ({ total, selected, onPageChange }) => {
           }
           console.log(selected)
   return <div className="pageContainer">
-     <div>prev</div>
+      {selected==1 ? "" : <div onClick={()=>{onPageChange(selected-1)}}  >prev</div>}
         {str.map((el,index)=>{
            return(
              <>
              {console.log(selected===el)}
-             {+(selected)===el ? (<div style={{   border: "1px solid #1488fb",
+             {+(selected)==el ? (<div style={{   border: "1px solid #1488fb",
    marginRight: "10px",
    textalign: "center",
    padding: "10px",
@@ -24,7 +24,7 @@ padding: "10px",
              </>
            )
         })}
-        <div>next</div>
+       { selected==total ? "":<div  onClick={()=>{onPageChange(selected+1)}}>next</div>}
         
   </div>;
 
